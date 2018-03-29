@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 
 //jfjjf
+//tdfhfhg 2
 MainWindow::~MainWindow()
 {
     delete ui;
