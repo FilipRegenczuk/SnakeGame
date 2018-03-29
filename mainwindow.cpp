@@ -8,16 +8,17 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QPixmap pix("C:/Users/monif/Documents/Qt/Snake/Logo.png");
+    QPixmap pix(":/img/Logo.png");
     ui->title_pic->setPixmap(pix);
 
-    QPixmap bkgnd("C:/Users/monif/Documents/Qt/Snake/snakeskin.png");
+    QPixmap bkgnd(":/img/snakeskin.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
 }
 
+//jfjjf
 MainWindow::~MainWindow()
 {
     delete ui;
