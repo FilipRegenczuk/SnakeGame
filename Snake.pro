@@ -34,3 +34,6 @@ FORMS += \
         mainwindow.ui
 
 RC_ICONS = snake.ico
+
+RESOURCES += \
+    resources.qrc
