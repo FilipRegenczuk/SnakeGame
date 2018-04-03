@@ -33,8 +33,9 @@ MoveSnake::MoveSnake(QGraphicsItem *parent):QGraphicsRectItem(parent)
     text = new QGraphicsTextItem(this);
     text->setVisible(true);
     text->setPlainText("Press Space to continue");
-    text->setPos(650,250);
-    text->setFont(QFont("",14));
+    text->setPos(500,100);
+    text->setDefaultTextColor(Qt::white);
+    text->setFont(QFont("bold",17, QFont::Bold, true));
 
 
 //  /  makeBoard();
