@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/img">
-        <file>Logo.png</file>
-        <file>snake.ico</file>
-        <file>snakeskin.png</file>
-    </qresource>
-</RCC>
