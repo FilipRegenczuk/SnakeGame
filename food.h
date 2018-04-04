@@ -2,7 +2,7 @@
 #define FOOD_H
 #include <QGraphicsPixmapItem>
 
-
+//jball
 class food:public QGraphicsPixmapItem
 {
 
