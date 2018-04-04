@@ -27,17 +27,18 @@ Button::Button(QString name, QGraphicsItem *parent):QGraphicsRectItem(parent)
 void Button::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     if(event)
-    emit clicked();
+        emit clicked();
 }
 
 void Button::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 {
     //change color
-    if(event){
-    QBrush brush;
-    brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::red);
-    setBrush(brush);
+    if(event)
+    {
+        QBrush brush;
+        brush.setStyle(Qt::SolidPattern);
+        brush.setColor(Qt::red);
+        setBrush(brush);
     }
 }
 void Button::hoverLeaveEvent(QGraphicsSceneHoverEvent *event) {
