@@ -180,7 +180,6 @@ void SnakePart::setImage()
                 setPixmap(QPixmap(":/images/images/upRight-leftDown.png").scaled(40,40));
 
         }
-    }
 }
 
 void SnakePart::checkCollidingObjects()
