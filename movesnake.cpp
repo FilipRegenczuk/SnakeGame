@@ -101,15 +101,15 @@ void MoveSnake::move() {
 void MoveSnake::makeFood()
 {
     food * f1 = new food(this,"APPLE");
-    f1->setX(qrand() % (1400/40)* 40);
-    f1->setY(qrand() % (880/40) * 40) ;
+    f1->setX(qrand() % (1000/40)* 40);
+    f1->setY(qrand() % (720/40) * 40) ;
 
 }
 void MoveSnake::makeFood2()
 {
     food * f1 = new food(this);
-    f1->setX(qrand() % (1400/40)* 40);
-    f1->setY(qrand() % (880/40) * 40) ;
+    f1->setX(qrand() % (1000/40)* 40);
+    f1->setY(qrand() % (720/40) * 40) ;
 
 }
 

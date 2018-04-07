@@ -57,16 +57,16 @@ void SnakePart::move() {
     if(this->getForward()!= NULL)
         direction = this->getForward()->direction;
     if(first){
-    if(this->y() >= 880 ){
+    if(this->y() >= 720 ){
         this->setY(0);
     }
     else if(this->y()<0){
-        this->setY(880);
+        this->setY(720);
     }
     else if(this->x() < 0){
-        this->setX(1400);
+        this->setX(1000);
     }
-    else if(this->x() >= 1400){
+    else if(this->x() >= 1000){
         this->setX(0);
     }
 
