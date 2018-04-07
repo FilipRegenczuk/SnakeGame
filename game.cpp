@@ -47,7 +47,7 @@ void Game::displayMainMenu(QString text,QString play)
     QPixmap logo(":/images/images/Logo.png");
     logoLabel = new QLabel();
     logoLabel->setPixmap(logo);
-    logoLabel->setGeometry(297,150,406,107);
+    logoLabel->setGeometry(width()/2-203,150,406,107);
     gameScene->addWidget(logoLabel);
 
     //tworzenie przycisków, są uzależnione położeniem od tekstu "Game Over!"
@@ -68,7 +68,6 @@ void Game::displayMainMenu(QString text,QString play)
     int hyPos = 200;
     helpButton->setPos(hxPos,hyPos);
     connect(helpButton, SIGNAL(clicked()),this,SLOT(help()));
-
 }
 
 void Game::start()
@@ -93,7 +92,36 @@ void Game::start()
 
 void Game::help()
 {
+    gameScene->removeItem(gameOverText);
+    logoLabel->hide();
 
+    helpText = new QGraphicsTextItem("HELP");
+    QFont textFont("arial", 30);
+    helpText->setFont(textFont);
+    helpText->setDefaultTextColor(Qt::white);
+    int xPos = 500- helpText->boundingRect().width()/2;
+    int yPos = 50;
+    helpText->setPos(xPos,yPos);
+    gameScene->addItem(helpText);
+
+    QPixmap hp(":/images/images/Logo.png");
+    helpLabel = new QLabel();
+    helpLabel ->setPixmap(hp);
+    helpLabel ->setGeometry(width()/2-203,height()/2-54,406,108);
+    gameScene->addWidget(helpLabel);
+
+    Button * helpButton = new Button("BACK", helpText);
+    int hxPos = helpText ->boundingRect().width()/2 - helpButton->boundingRect().width()/2;
+    int hyPos = 550;
+    helpButton->setPos(hxPos,hyPos);
+    connect(helpButton, SIGNAL(clicked()), this, SLOT(back()));
+}
+
+void Game::back()
+{
+    displayMainMenu("", "PLAY");
+    gameScene->removeItem(helpText);
+    helpLabel->hide();
 }
 
 void Game::gameOver()

@@ -29,12 +29,15 @@ public:
     MoveSnake *snake2;
     QLabel *logoLabel;
     QGraphicsTextItem *gameOverText;
+    QLabel *helpLabel;
+    QGraphicsTextItem *helpText;
     Button *b;
 
 public slots:
 
     void start();
     void help();
+    void back();
 
 };
 
