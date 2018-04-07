@@ -1,23 +1,25 @@
 <RCC>
     <qresource prefix="/images">
-        <file>left-right.png</file>
-        <file>up-down.png</file>
-        <file>tail.png</file>
-        <file>head.png</file>
-        <file>headDown.png</file>
-        <file>headLeft.png</file>
-        <file>headup.png</file>
-        <file>apple.png</file>
-        <file>tailUp.png</file>
-        <file>tailDown.png</file>
-        <file>tailLeft.png</file>
-        <file>leftUp-downRight.png</file>
-        <file>rightUp-downLeft.png</file>
-        <file>upLeft-rightDown.png</file>
-        <file>upRight-leftDown.png</file>
-        <file>pineapple.png</file>
-        <file>bg.png</file>
-        <file>Logo.png</file>
-        <file>snake.ico</file>
+        <file>images/apple.png</file>
+        <file>images/bg.png</file>
+        <file>images/head.png</file>
+        <file>images/headDown.png</file>
+        <file>images/headLeft.png</file>
+        <file>images/headright.png</file>
+        <file>images/headup.png</file>
+        <file>images/left-right.png</file>
+        <file>images/leftUp-downRight.png</file>
+        <file>images/Logo.png</file>
+        <file>images/pineapple.png</file>
+        <file>images/rightUp-downLeft.png</file>
+        <file>images/snake.png</file>
+        <file>images/snakeskin.png</file>
+        <file>images/tailDown.png</file>
+        <file>images/tailLeft.png</file>
+        <file>images/tailRight.png</file>
+        <file>images/tailUp.png</file>
+        <file>images/up-down.png</file>
+        <file>images/upLeft-rightDown.png</file>
+        <file>images/upRight-leftDown.png</file>
     </qresource>
 </RCC>

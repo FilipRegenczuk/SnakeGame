@@ -11,7 +11,7 @@ Game::Game(QWidget *parent):QGraphicsView(parent)
     gameScene = new QGraphicsScene(this);
     gameScene->setSceneRect(0,0,1000,700);
     QGraphicsPixmapItem *bg = new QGraphicsPixmapItem();
-    bg->setPixmap(QPixmap(":/images/bg.png").scaled(1000,700));
+    bg->setPixmap(QPixmap(":/images/images/bg.png").scaled(1000,700));
     gameScene->addItem(bg);
     //adding the gameScene to the view
     setScene(gameScene);
@@ -42,7 +42,7 @@ void Game::displayMainMenu(QString title,QString play)
     titleText->setPos(xPos,yPos);
     gameScene->addItem(titleText);
 
-    QPixmap logo(":/images/Logo.png");
+    QPixmap logo(":/images/images/Logo.png");
     logoLabel = new QLabel();
     logoLabel->setPixmap(logo);
     logoLabel->setGeometry(297,150,406,107);
