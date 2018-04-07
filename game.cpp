@@ -11,7 +11,7 @@ Game::Game(QWidget *parent):QGraphicsView(parent)
     gameScene = new QGraphicsScene(this);
     gameScene->setSceneRect(0,0,1000,720);
     QGraphicsPixmapItem *bg = new QGraphicsPixmapItem();
-    bg->setPixmap(QPixmap(":/images/images/bg.png").scaled(1000,700));
+    bg->setPixmap(QPixmap(":/images/images/bg.png").scaled(1000,720));
     gameScene->addItem(bg);
     //adding the gameScene to the view
     setScene(gameScene);
@@ -100,7 +100,7 @@ void Game::help()
 
 void Game::gameOver()
 {
-    displayMainMenu("Game Over!","AGAIN");
+    displayMainMenu("Game Over!","AGAIN?");
     gameScene->removeItem(snake);
     //delete snake;
 }
