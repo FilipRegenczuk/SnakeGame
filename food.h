@@ -1,14 +1,14 @@
 #ifndef FOOD_H
 #define FOOD_H
+
 #include <QGraphicsPixmapItem>
 
-//jball
-class food:public QGraphicsPixmapItem
+class Food:public QGraphicsPixmapItem
 {
 
 public:
 
-    food(QGraphicsItem *parent = 0,QString name = "");
+    Food(QGraphicsItem *parent = 0,QString name = "");
     int score;
 
 };

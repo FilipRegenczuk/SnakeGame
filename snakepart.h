@@ -1,12 +1,17 @@
 #ifndef SNAKEPART_H
 #define SNAKEPART_H
-#include <QGraphicsRectItem>
 
+#include <QGraphicsRectItem>
 
 class SnakePart:public QGraphicsPixmapItem
 {
 
 public:
+
+    void move();
+    void addBehind();
+    void checkCollidingObjects();
+    void setImage();
 
     SnakePart(QGraphicsItem *parent = 0);
 
@@ -19,12 +24,7 @@ public:
     QString getDirection() ;
     void setDirection( QString value);
 
-    void move();
-    void addBehind();
-    void checkCollidingObjects();
-
     QString part;
-    void setImage();
 
 private:
 

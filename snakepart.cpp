@@ -159,11 +159,11 @@ void SnakePart::checkCollidingObjects() {
     QList <QGraphicsItem *> coll = this->collidingItems();
 
     for(int i = 0,n = coll.length(); i < n; i++) {
-        food *f = dynamic_cast<food *>(coll[i]);
+        Food *f = dynamic_cast<Food *>(coll[i]);
         if(f) {
             QPointF thisCenter(x()+10,y()+10);
-            QPointF foodCenter(f->x()+10,f->y()+10);
-            QLineF ln(thisCenter,foodCenter);
+            QPointF FoodCenter(f->x()+10,f->y()+10);
+            QLineF ln(thisCenter,FoodCenter);
             if(ln.length() == 0){
 
                 game->snake->addPart();

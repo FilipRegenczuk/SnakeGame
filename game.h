@@ -18,17 +18,18 @@ class Game:public QGraphicsView
 
 public:
 
-    Game(QWidget *parent = 0);
     void keyPressEvent(QKeyEvent *event);
+    void displayMainMenu(QString gameOverText, QString play);
+    void gameOver();
+
+    Game(QWidget *parent = 0);
     Score *score;
     QGraphicsScene *gameScene ;
     MoveSnake *snake;
     MoveSnake *snake2;
-    void displayMainMenu(QString title, QString play);
     QLabel *logoLabel;
-    QGraphicsTextItem *titleText;
+    QGraphicsTextItem *gameOverText;
     Button *b;
-    void gameOver();
 
 public slots:
 

@@ -1,20 +1,20 @@
 #include "game.h"
+
 #include <QLabel>
+
 Game::Game(QWidget *parent):QGraphicsView(parent)
 {
-    //making the view or window
-    setFixedSize(1000, 720);
-    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setFixedSize(1000, 720);    //ustawianie rozmiaru okna
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);   //funkcja, dzięki której nie da się "przewijać" okna poziomo
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);     //taka sama funkcja jak wyżej, tylko pionowo
 
-    //making the game scene
-    gameScene = new QGraphicsScene(this);
-    gameScene->setSceneRect(0,0,1000,720);
+    gameScene = new QGraphicsScene(this);   //tworzenie okna gry
+    gameScene->setSceneRect(0,0,1000,720);  //ustawianie rozmiaru pola gry
     QGraphicsPixmapItem *bg = new QGraphicsPixmapItem();
     bg->setPixmap(QPixmap(":/images/images/bg.png").scaled(1000,720));
-    gameScene->addItem(bg);
-    //adding the gameScene to the view
-    setScene(gameScene);
+    gameScene->addItem(bg); //ustawienie tła gry
+
+    setScene(gameScene);    //włączanie pola gry do widoku
     score = new Score();
     gameScene->addItem(score);
     snake2 = NULL;
@@ -25,22 +25,23 @@ Game::Game(QWidget *parent):QGraphicsView(parent)
 void Game::keyPressEvent(QKeyEvent *event)
 {
     if(snake)
-    snake->keyPressEvent(event);
+        snake->keyPressEvent(event);
+
     else
         QGraphicsView::keyPressEvent(event);
 }
 
 void Game::displayMainMenu(QString title,QString play)
 {
-//Create the title
-    titleText = new QGraphicsTextItem(title);
+
+    gameOverText = new QGraphicsTextItem(title);
     QFont titleFont("arial" , 36);
-    titleText->setFont(titleFont);
-    titleText->setDefaultTextColor(Qt::white);
-    int xPos = width()/2 - titleText->boundingRect().width()/2;
+    gameOverText->setFont(titleFont);
+    gameOverText->setDefaultTextColor(Qt::white);
+    int xPos = width()/2 - gameOverText->boundingRect().width()/2;
     int yPos = 260;
-    titleText->setPos(xPos,yPos);
-    gameScene->addItem(titleText);
+    gameOverText->setPos(xPos,yPos);
+    gameScene->addItem(gameOverText);
 
     QPixmap logo(":/images/images/Logo.png");
     logoLabel = new QLabel();
@@ -49,8 +50,8 @@ void Game::displayMainMenu(QString title,QString play)
     gameScene->addWidget(logoLabel);
 
     //create Button
-    Button * playButton = new Button(play, titleText);
-    int pxPos = titleText ->boundingRect().width()/2 - playButton->boundingRect().width()/2;
+    Button * playButton = new Button(play, gameOverText);
+    int pxPos = gameOverText ->boundingRect().width()/2 - playButton->boundingRect().width()/2;
     int pyPos = 100;
     playButton->setPos(pxPos,pyPos);
 
@@ -59,15 +60,15 @@ void Game::displayMainMenu(QString title,QString play)
 
 
     //Create Quit Button
-    Button * quitButton = new Button("QUIT", titleText);
-    int qxPos = titleText ->boundingRect().width()/2 - playButton->boundingRect().width()/2;
+    Button * quitButton = new Button("QUIT", gameOverText);
+    int qxPos = gameOverText ->boundingRect().width()/2 - playButton->boundingRect().width()/2;
     int qyPos = 300;
     quitButton->setPos(qxPos,qyPos);
     connect(quitButton, SIGNAL(clicked()),this,SLOT(close()));
     //gameScene->addItem(quitButton);
 
-    Button * helpButton = new Button("HELP", titleText);
-    int hxPos = titleText ->boundingRect().width()/2 - playButton->boundingRect().width()/2;
+    Button * helpButton = new Button("HELP", gameOverText);
+    int hxPos = gameOverText ->boundingRect().width()/2 - playButton->boundingRect().width()/2;
     int hyPos = 200;
     helpButton->setPos(hxPos,hyPos);
     connect(helpButton, SIGNAL(clicked()),this,SLOT(help()));
@@ -82,9 +83,9 @@ void Game::start()
     score->setScore(0);
     gameScene->addItem(snake);
     logoLabel->hide();
-    gameScene->removeItem(titleText);
+    gameScene->removeItem(gameOverText);
 
-    delete titleText;
+    delete gameOverText;
     delete logoLabel;
 
     if (snake2)

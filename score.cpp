@@ -8,6 +8,7 @@ Score::Score(QGraphicsItem *parent):QGraphicsTextItem(parent)
 
     setPos(5,10);
     setFont( QFont("",20));
+    setDefaultTextColor(Qt::white);
 }
 
 int Score::getScore()

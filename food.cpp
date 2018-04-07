@@ -2,14 +2,16 @@
 
 #include <QBrush>
 
-
-food::food(QGraphicsItem *parent,QString name):QGraphicsPixmapItem(parent)
+Food::Food(QGraphicsItem *parent,QString name):QGraphicsPixmapItem(parent)
 {
-    if(name == "APPLE"){
+    if(name == "APPLE")
+    {
         setPixmap(QPixmap(":/images/images/apple.png").scaled(40,40));
         score = 1;
     }
-    else{
+
+    else
+    {
         setPixmap(QPixmap(":/images/images/pineapple.png").scaled(40,40,Qt::KeepAspectRatio));
         score = 3;
     }

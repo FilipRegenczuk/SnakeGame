@@ -2,8 +2,8 @@
 #define MOVESNAKE_H
 #include <QKeyEvent>
 #include <QGraphicsItem>
-#include "snakepart.h"
 
+#include "snakepart.h"
 
 class MoveSnake:public QObject, public QGraphicsRectItem
 {
@@ -12,6 +12,7 @@ class MoveSnake:public QObject, public QGraphicsRectItem
 public:
 
     MoveSnake(QGraphicsItem *parent = 0);
+
     void keyPressEvent(QKeyEvent *event);
     void makeBoard();
     void addPart();
@@ -28,7 +29,7 @@ private:
     SnakePart *snakeHead;
     SnakePart *snakeTail;
     QString direction;
-    QTimer *t;
+    QTimer *snakeTimer;
     QTimer *foodTimer;
     QTimer *food2Timer;
     QGraphicsTextItem *text;

@@ -15,8 +15,8 @@ MoveSnake::MoveSnake(QGraphicsItem *parent):QGraphicsRectItem(parent)
     snakeHead->setImage();
     snakeTail = snakeHead;
 
-    t = new QTimer();
-    connect(t,SIGNAL(timeout()),this,SLOT(move()));
+    snakeTimer = new QTimer();
+    connect(snakeTimer,SIGNAL(timeout()),this,SLOT(move()));
 
     foodTimer = new QTimer();
     connect(foodTimer,SIGNAL(timeout()),this,SLOT(makeFood()));
@@ -45,34 +45,34 @@ MoveSnake::MoveSnake(QGraphicsItem *parent):QGraphicsRectItem(parent)
 void MoveSnake::keyPressEvent(QKeyEvent *event)
 {
 
-    if(event->key() == Qt::Key_Down && snakeHead->getDirection() != "UP") {
+    if(event->key() == Qt::Key_S && snakeHead->getDirection() != "UP") {
       //  snake->setY(snake->y()+40);
         direction = "DOWN";
     }
-    else if(event->key() == Qt::Key_Up && snakeHead->getDirection() != "DOWN") {
+    else if(event->key() == Qt::Key_W && snakeHead->getDirection() != "DOWN") {
       //  snake->setY(snake->y()-40);
         direction = "UP";
     }
-    else if(event->key() == Qt::Key_Right && snakeHead->getDirection() != "LEFT") {
+    else if(event->key() == Qt::Key_D && snakeHead->getDirection() != "LEFT") {
       //  snake->setX(snake->x()+40);
         direction = "RIGHT";
     }
-    else if(event->key() == Qt::Key_Left && snakeHead->getDirection() != "RIGHT") {
+    else if(event->key() == Qt::Key_A && snakeHead->getDirection() != "RIGHT") {
         //snake->setX(snake->x()-40);
         direction = "LEFT";
     }
     else if(event->key() == Qt::Key_Space){
-        if(t->isActive()){
+        if(snakeTimer->isActive()){
             foodTimer->stop();
             food2Timer->stop();
-        t->stop();
+        snakeTimer->stop();
         text->setVisible(true);
         }
         else{
 
-            foodTimer->start(3000);
-            food2Timer->start(7000);
-            t->start(90);
+            foodTimer->start(5000);
+            food2Timer->start(15000);
+            snakeTimer->start(100);
             text->setVisible(false);
         }
 
@@ -100,14 +100,14 @@ void MoveSnake::move() {
 
 void MoveSnake::makeFood()
 {
-    food * f1 = new food(this,"APPLE");
+    Food * f1 = new Food(this,"APPLE");
     f1->setX(qrand() % (1000/40)* 40);
     f1->setY(qrand() % (720/40) * 40) ;
 
 }
 void MoveSnake::makeFood2()
 {
-    food * f1 = new food(this);
+    Food * f1 = new Food(this);
     f1->setX(qrand() % (1000/40)* 40);
     f1->setY(qrand() % (720/40) * 40) ;
 

@@ -1,18 +1,17 @@
 #include "button.h"
+
 #include <QGraphicsTextItem>
 #include <QBrush>
 
 Button::Button(QString name, QGraphicsItem *parent):QGraphicsRectItem(parent)
 {
-    //draw the rect
-    setRect(0,0,250,80);
+    setRect(0,0,250,80);    //rysowanie kształtu przycisku
     QBrush brush;
-    brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::darkGreen);
+    brush.setStyle(Qt::SolidPattern);   //wzór przycisku
+    brush.setColor(Qt::darkGreen);  //kolor przycisku
     setBrush(brush);
 
-    //draw Text
-    text = new QGraphicsTextItem(name,this);
+    text = new QGraphicsTextItem(name,this);    //tworzenie tekstu na przycisku
     int xPos = rect().width()/2- text->boundingRect().width()*2;
     int yPos = rect().height()/2 - text->boundingRect().height()*1.5;
     text->setPos(xPos,yPos);
@@ -20,8 +19,7 @@ Button::Button(QString name, QGraphicsItem *parent):QGraphicsRectItem(parent)
     text->setFont(newFont);
     text->setDefaultTextColor(Qt::white);
 
-    //Allow responding to hover
-    setAcceptHoverEvents(true);
+    setAcceptHoverEvents(true); //funkcja pozwalająca przyciskowi reagować na przesuwanie nad nim kursorem
 }
 
 void Button::mousePressEvent(QGraphicsSceneMouseEvent *event)
@@ -32,8 +30,7 @@ void Button::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
 void Button::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 {
-    //change color
-    if(event)
+    if(event) //zmiana koloru przy najechaniu przycisku myszką
     {
         QBrush brush;
         brush.setStyle(Qt::SolidPattern);
@@ -41,12 +38,13 @@ void Button::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
         setBrush(brush);
     }
 }
-void Button::hoverLeaveEvent(QGraphicsSceneHoverEvent *event) {
-    //change color
-    if(event){
-    QBrush brush;
-    brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::darkGreen);
-    setBrush(brush);
+void Button::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
+{
+    if(event) // zmiana koloru na poprzedni kolor przycisku przy opuszczaniu przycisku myszką
+    {
+        QBrush brush;
+        brush.setStyle(Qt::SolidPattern);
+        brush.setColor(Qt::darkGreen);
+        setBrush(brush);
     }
 }
