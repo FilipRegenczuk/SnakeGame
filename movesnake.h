@@ -14,24 +14,23 @@ public:
     MoveSnake(QGraphicsItem *parent = 0);
 
     void keyPressEvent(QKeyEvent *event);
-    void makeBoard();
     void addPart();
     void moveSnake();
 
 public slots:
 
     void move();
-    void makeFood2();
-    void makeFood();
+    void makeApple();
+    void makePineapple();
 
 private:
 
     SnakePart *snakeHead;
     SnakePart *snakeTail;
     QString direction;
-    QTimer *snakeTimer;
-    QTimer *foodTimer;
-    QTimer *food2Timer;
+    QTimer *snakeTimer; //szybkość, z jaką porusza się wąż
+    QTimer *appleTimer;  //czas, po którym pojawia się nowe jabłko
+    QTimer *pineappleTimer; //czas, po którym pojawia się nowy ananas
     QGraphicsTextItem *text;
 };
 

@@ -31,41 +31,37 @@ void Game::keyPressEvent(QKeyEvent *event)
         QGraphicsView::keyPressEvent(event);
 }
 
-void Game::displayMainMenu(QString title,QString play)
+void Game::displayMainMenu(QString text,QString play)
 {
-
-    gameOverText = new QGraphicsTextItem(title);
-    QFont titleFont("arial" , 36);
-    gameOverText->setFont(titleFont);
+    //tworzenie tekstu "Game Over!", na początku gry jest pustym polem tekstowym
+    gameOverText = new QGraphicsTextItem(text);
+    QFont textFont("arial" , 36);
+    gameOverText->setFont(textFont);
     gameOverText->setDefaultTextColor(Qt::white);
     int xPos = width()/2 - gameOverText->boundingRect().width()/2;
     int yPos = 260;
     gameOverText->setPos(xPos,yPos);
     gameScene->addItem(gameOverText);
 
+    //ustawianie obrazu z nazwą gry na tytuł
     QPixmap logo(":/images/images/Logo.png");
     logoLabel = new QLabel();
     logoLabel->setPixmap(logo);
     logoLabel->setGeometry(297,150,406,107);
     gameScene->addWidget(logoLabel);
 
-    //create Button
+    //tworzenie przycisków, są uzależnione położeniem od tekstu "Game Over!"
     Button * playButton = new Button(play, gameOverText);
     int pxPos = gameOverText ->boundingRect().width()/2 - playButton->boundingRect().width()/2;
     int pyPos = 100;
     playButton->setPos(pxPos,pyPos);
-
     connect(playButton,SIGNAL(clicked()) , this , SLOT(start()));
-    //gameScene->addItem(playButton);
 
-
-    //Create Quit Button
     Button * quitButton = new Button("QUIT", gameOverText);
     int qxPos = gameOverText ->boundingRect().width()/2 - playButton->boundingRect().width()/2;
     int qyPos = 300;
     quitButton->setPos(qxPos,qyPos);
     connect(quitButton, SIGNAL(clicked()),this,SLOT(close()));
-    //gameScene->addItem(quitButton);
 
     Button * helpButton = new Button("HELP", gameOverText);
     int hxPos = gameOverText ->boundingRect().width()/2 - playButton->boundingRect().width()/2;
@@ -74,10 +70,11 @@ void Game::displayMainMenu(QString title,QString play)
     connect(helpButton, SIGNAL(clicked()),this,SLOT(help()));
 
 }
+
 void Game::start()
 {
     snake = new MoveSnake();
-    snake->setFlag(QGraphicsItem::ItemIsFocusable);
+    snake->setFlag(QGraphicsItem::ItemIsFocusable); //dzięki fladze ItemIsFocusable wąż reaguje na naciśnięcie spacji
     snake->setFocus();
     score->setVisible(true);
     score->setScore(0);
@@ -103,5 +100,4 @@ void Game::gameOver()
 {
     displayMainMenu("Game Over!","AGAIN?");
     gameScene->removeItem(snake);
-    //delete snake;
 }
