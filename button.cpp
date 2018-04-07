@@ -13,8 +13,8 @@ Button::Button(QString name, QGraphicsItem *parent):QGraphicsRectItem(parent)
 
     //draw Text
     text = new QGraphicsTextItem(name,this);
-    int xPos = rect().width()/2 - text->boundingRect().width()/2-48;
-    int yPos = rect().height()/2 - text->boundingRect().height()/2-23;
+    int xPos = rect().width()/2- text->boundingRect().width()*2;
+    int yPos = rect().height()/2 - text->boundingRect().height()*1.5;
     text->setPos(xPos,yPos);
     QFont newFont("Bold", 36, QFont::Bold, false);
     text->setFont(newFont);
