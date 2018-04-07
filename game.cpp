@@ -3,13 +3,13 @@
 Game::Game(QWidget *parent):QGraphicsView(parent)
 {
     //making the view or window
-    setFixedSize(1000, 700);
+    setFixedSize(1000, 720);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     //making the game scene
     gameScene = new QGraphicsScene(this);
-    gameScene->setSceneRect(0,0,1000,700);
+    gameScene->setSceneRect(0,0,1000,720);
     QGraphicsPixmapItem *bg = new QGraphicsPixmapItem();
     bg->setPixmap(QPixmap(":/images/images/bg.png").scaled(1000,700));
     gameScene->addItem(bg);
@@ -50,7 +50,7 @@ void Game::displayMainMenu(QString title,QString play)
 
     //create Button
     Button * playButton = new Button(play, titleText);
-    int pxPos = -10;
+    int pxPos = titleText ->boundingRect().width()/2 - playButton->boundingRect().width()/2;
     int pyPos = 100;
     playButton->setPos(pxPos,pyPos);
 
@@ -60,14 +60,14 @@ void Game::displayMainMenu(QString title,QString play)
 
     //Create Quit Button
     Button * quitButton = new Button("QUIT", titleText);
-    int qxPos = -10;
+    int qxPos = titleText ->boundingRect().width()/2 - playButton->boundingRect().width()/2;
     int qyPos = 300;
     quitButton->setPos(qxPos,qyPos);
     connect(quitButton, SIGNAL(clicked()),this,SLOT(close()));
     //gameScene->addItem(quitButton);
 
     Button * helpButton = new Button("HELP", titleText);
-    int hxPos = -10;
+    int hxPos = titleText ->boundingRect().width()/2 - playButton->boundingRect().width()/2;
     int hyPos = 200;
     helpButton->setPos(hxPos,hyPos);
     connect(helpButton, SIGNAL(clicked()),this,SLOT(help()));
