@@ -72,7 +72,7 @@ void Game::displayMainMenu(QString text,QString play)
 
 void Game::start()
 {
-    snake = new MoveSnake();
+    snake = new Board();
     snake->setFlag(QGraphicsItem::ItemIsFocusable); //dzięki fladze ItemIsFocusable wąż reaguje na naciśnięcie spacji
     snake->setFocus();
     score->setVisible(true);
@@ -104,15 +104,15 @@ void Game::help()
     helpText->setPos(xPos,yPos);
     gameScene->addItem(helpText);
 
-    QPixmap hp(":/images/images/Logo.png");
+    QPixmap hp(":/images/images/help.png");
     helpLabel = new QLabel();
     helpLabel ->setPixmap(hp);
-    helpLabel ->setGeometry(width()/2-203,height()/2-54,406,108);
+    helpLabel ->setGeometry(width()/2-446,height()/2-250,893,500);
     gameScene->addWidget(helpLabel);
 
     Button * helpButton = new Button("BACK", helpText);
     int hxPos = helpText ->boundingRect().width()/2 - helpButton->boundingRect().width()/2;
-    int hyPos = 550;
+    int hyPos = 575;
     helpButton->setPos(hxPos,hyPos);
     connect(helpButton, SIGNAL(clicked()), this, SLOT(back()));
 }

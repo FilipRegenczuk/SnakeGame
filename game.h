@@ -7,7 +7,7 @@
 #include <QGraphicsRectItem>
 #include <QLabel>
 
-#include "movesnake.h"
+#include "board.h"
 #include "score.h"
 #include "button.h"
 
@@ -25,8 +25,8 @@ public:
     Game(QWidget *parent = 0);
     Score *score;
     QGraphicsScene *gameScene ;
-    MoveSnake *snake;
-    MoveSnake *snake2;
+    Board *snake;
+    Board *snake2;
     QLabel *logoLabel;
     QGraphicsTextItem *gameOverText;
     QLabel *helpLabel;

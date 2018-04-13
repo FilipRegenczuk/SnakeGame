@@ -38,7 +38,7 @@ QString SnakePart::getDirection()
     return direction;
 }
 
-void SnakePart::setDirection( QString value)
+void SnakePart::setDirection(QString value)
 {
     direction = value;
 }
@@ -191,8 +191,8 @@ void SnakePart::checkCollidingObjects()
         Food *f = dynamic_cast<Food *>(coll[i]);
         if(f)
         {
-            QPointF thisCenter(x()+10,y()+10);
-            QPointF FoodCenter(f->x()+10,f->y()+10);
+            QPointF thisCenter(x(),y());
+            QPointF FoodCenter(f->x(),f->y());
             QLineF ln(thisCenter,FoodCenter);
             if(ln.length() == 0)
             {

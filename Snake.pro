@@ -16,18 +16,18 @@ RC_ICONS = snake.ico
 SOURCES += main.cpp \
     game.cpp \
     snakepart.cpp \
-    movesnake.cpp \
     food.cpp \
     score.cpp \
-    button.cpp
+    button.cpp \
+    board.cpp
 
 HEADERS  += \
     game.h \
     snakepart.h \
-    movesnake.h \
     food.h \
     score.h \
-    button.h
+    button.h \
+    board.h
 
 FORMS    +=
 

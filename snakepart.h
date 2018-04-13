@@ -15,14 +15,14 @@ public:
 
     SnakePart(QGraphicsItem *parent = 0);
 
-    SnakePart *getForward() ;
+    SnakePart *getForward();
     void setForward(SnakePart *value);
 
-    SnakePart *getBackward() ;
+    SnakePart *getBackward();
     void setBackward(SnakePart *value);
 
-    QString getDirection() ;
-    void setDirection( QString value);
+    QString getDirection();
+    void setDirection(QString value);
 
     QString part;
 

@@ -21,5 +21,6 @@
         <file>images/up-down.png</file>
         <file>images/upLeft-rightDown.png</file>
         <file>images/upRight-leftDown.png</file>
+        <file>images/help.png</file>
     </qresource>
 </RCC>
