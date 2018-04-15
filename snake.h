@@ -3,7 +3,7 @@
 
 #include <QGraphicsRectItem>
 
-class SnakePart:public QGraphicsPixmapItem
+class Snake:public QGraphicsPixmapItem
 {
 
 public:
@@ -13,13 +13,13 @@ public:
     void checkCollidingObjects();
     void setImage();
 
-    SnakePart(QGraphicsItem *parent = 0);
+    Snake(QGraphicsItem *parent = 0);
 
-    SnakePart *getForward();
-    void setForward(SnakePart *value);
+    Snake *getForward();
+    void setForward(Snake *value);
 
-    SnakePart *getBackward();
-    void setBackward(SnakePart *value);
+    Snake *getBackward();
+    void setBackward(Snake *value);
 
     QString getDirection();
     void setDirection(QString value);
@@ -28,8 +28,8 @@ public:
 
 private:
 
-    SnakePart *forward;
-    SnakePart *backward;
+    Snake *forward;
+    Snake *backward;
     QString direction;
 
 };

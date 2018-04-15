@@ -25,8 +25,8 @@ public slots:
 
 private:
 
-    SnakePart           *snakeHead;
-    SnakePart           *snakeTail;
+    Snake          *snakeHead;
+    Snake          *snakeTail;
     QString              direction;
     QTimer              *snakeTimer; //szybkość, z jaką porusza się wąż
     QTimer              *appleTimer;  //czas, po którym pojawia się nowe jabłko

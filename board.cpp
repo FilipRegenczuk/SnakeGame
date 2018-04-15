@@ -8,7 +8,7 @@
 
 Board::Board(QGraphicsItem *parent):QGraphicsRectItem(parent)
 {
-    snakeHead = new SnakePart(this);
+    snakeHead = new Snake(this);
     snakeHead->setForward(NULL);
     snakeHead->setBackward(NULL);
     snakeHead->setPos(200,200);
@@ -95,7 +95,7 @@ void Board::move()
 
 void Board::moveSnake()
 {
-   SnakePart *temp = snakeTail;
+   Snake *temp = snakeTail;
 
    while(temp!=NULL)
    {
@@ -119,8 +119,8 @@ void Board::makePineapple()
 
 void Board::addPart()
 {
-    SnakePart *part = new SnakePart(this);
-    SnakePart *temp = snakeHead;
+    Snake *part = new Snake(this);
+    Snake *temp = snakeHead;
     while(temp->getBackward() != NULL)
     {
         temp = temp->getBackward();
