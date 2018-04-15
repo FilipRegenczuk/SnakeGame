@@ -3,7 +3,7 @@
 #include <QKeyEvent>
 #include <QGraphicsItem>
 
-#include "snakepart.h"
+#include "snake.h"
 
 class Board:public QObject, public QGraphicsRectItem
 {

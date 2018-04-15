@@ -1,5 +1,5 @@
 #include "board.h"
-#include "snakepart.h"
+#include "snake.h"
 
 #include <QTimer>
 #include <food.h>
