@@ -25,13 +25,13 @@ public slots:
 
 private:
 
-    SnakePart *snakeHead;
-    SnakePart *snakeTail;
-    QString direction;
-    QTimer *snakeTimer; //szybkość, z jaką porusza się wąż
-    QTimer *appleTimer;  //czas, po którym pojawia się nowe jabłko
-    QTimer *pineappleTimer; //czas, po którym pojawia się nowy ananas
-    QGraphicsTextItem *text;
+    SnakePart           *snakeHead;
+    SnakePart           *snakeTail;
+    QString              direction;
+    QTimer              *snakeTimer; //szybkość, z jaką porusza się wąż
+    QTimer              *appleTimer;  //czas, po którym pojawia się nowe jabłko
+    QTimer              *pineappleTimer; //czas, po którym pojawia się nowy ananas
+    QGraphicsTextItem   *text;
 };
 
 #endif // MOVESNAKE_H

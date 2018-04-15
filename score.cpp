@@ -16,7 +16,7 @@ int Score::getScore()
     return score;
 }
 
-void Score::setScore(int value)
+void Score::getScore(int value)
 {
     score = value;
     setPlainText("Score: " + QString::number(score));

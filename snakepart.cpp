@@ -191,6 +191,7 @@ void SnakePart::checkCollidingObjects()
         Food *f = dynamic_cast<Food *>(coll[i]);
         if(f)
         {
+            //jeśli wąż (this) znajdzie się w tym miejscu co jedzenie, jedzenie znika i nabijają się punkty
             QPointF thisCenter(x(),y());
             QPointF FoodCenter(f->x(),f->y());
             QLineF ln(thisCenter,FoodCenter);
@@ -198,7 +199,7 @@ void SnakePart::checkCollidingObjects()
             {
                 game->snake->addPart();
                 game->gameScene->removeItem(f);
-                game->score->setScore(game->score->getScore()+f->score);
+                game->score->getScore(game->score->getScore()+f->score);
                 delete f;
             }
         }

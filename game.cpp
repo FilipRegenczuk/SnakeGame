@@ -76,7 +76,7 @@ void Game::start()
     snake->setFlag(QGraphicsItem::ItemIsFocusable); //dzięki fladze ItemIsFocusable wąż reaguje na naciśnięcie spacji
     snake->setFocus();
     score->setVisible(true);
-    score->setScore(0);
+    score->getScore(0);
     gameScene->addItem(snake);
     logoLabel->hide();
     gameScene->removeItem(gameOverText);
