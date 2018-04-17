@@ -8,6 +8,7 @@
 
 Board::Board(QGraphicsItem *parent):QGraphicsRectItem(parent)
 {
+    // stworzenie i umiejscownienie na planszy węża
     snakeHead = new Snake(this);
     snakeHead->setForward(NULL);
     snakeHead->setBackward(NULL);
@@ -17,6 +18,7 @@ Board::Board(QGraphicsItem *parent):QGraphicsRectItem(parent)
     snakeHead->setImage();
     snakeTail = snakeHead;
 
+    // timery do węża i owoców
     snakeTimer = new QTimer();
     connect(snakeTimer,SIGNAL(timeout()),this,SLOT(move()));
 
@@ -28,7 +30,7 @@ Board::Board(QGraphicsItem *parent):QGraphicsRectItem(parent)
 
     direction = "RIGHT";
 
-    //dołączenie trzech części węża do głowy, powstaje początkowy wąż o dł. 4 jedn.
+    // dołączenie trzech części węża do głowy, powstaje początkowy wąż o dł. 4 jedn.
     addPart();
     addPart();
     addPart();
@@ -42,7 +44,7 @@ Board::Board(QGraphicsItem *parent):QGraphicsRectItem(parent)
 
 }
 
-//ustawianie kierunku, w którym będzie się poruszał wąż
+// klasa zajmująca się sterowaniem za pomocą klawiszy WASD oraz reakcją na space
 void Board::keyPressEvent(QKeyEvent *event)
 {
 
@@ -66,7 +68,7 @@ void Board::keyPressEvent(QKeyEvent *event)
         direction = "LEFT";
     }
 
-    //ustawianie reakcji planszy na spację
+    // ustawianie reakcji planszy na spację
     else if(event->key() == Qt::Key_Space)
     {
         if(snakeTimer->isActive())
@@ -104,6 +106,7 @@ void Board::moveSnake()
    }
 }
 
+// klasy tworzące owoce i umieszczające je w losowych miejscach na planszy
 void Board::makeApple()
 {
     Food * f1 = new Food(this,"APPLE");
@@ -117,6 +120,7 @@ void Board::makePineapple()
     f1->setY(qrand() % (720/40) * 40);
 }
 
+// klasa zajmująca się wydłużaniem węża po zjedzeniu obiektu
 void Board::addPart()
 {
     Snake *part = new Snake(this);

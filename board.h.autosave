@@ -1,5 +1,6 @@
 /* Klasa zajmująca się sterowaniem wężem oraz aktywowaniem i stopowaniem jego ruchu.
- * Jest tu również generator tworzenia owoców oraz wydłużania węża po ich zjedzeniu.
+ * Jest tu również generator losowania miejsc dla owoców oraz wydłużania węża po ich 
+ * zjedzeniu.
  * */
 
 #ifndef BOARD_H
