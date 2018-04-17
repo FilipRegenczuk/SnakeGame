@@ -8,28 +8,29 @@
 
 #include <QGraphicsRectItem>
 
+//klasa tworząca po kolei każdy kawałek węża
 class Snake:public QGraphicsPixmapItem
 {
 
 public:
 
     void move();
-    void addBehind();
+    void addBehind();   // ustawia kolejną część węża na koniec
     void checkCollidingObjects();
     void setImage();
 
     Snake(QGraphicsItem *parent = 0);
 
-    Snake *getForward();
+    Snake *getForward();    // określa wcześniejszą część węża (przed obecną)
     void setForward(Snake *value);
 
-    Snake *getBackward();
+    Snake *getBackward();   // określa następną część węża
     void setBackward(Snake *value);
 
-    QString getDirection();
+    QString getDirection(); //funkcja ustawiająca kierunek, w którym porusza się wąż
     void setDirection(QString value);
 
-    QString part;
+    QString part;   // służy do określenia, jaka to część węża (potrzebne do ustawiania obrazka)
 
 private:
 

@@ -45,7 +45,7 @@ void Snake::setDirection(QString value)
 
 void Snake::move()
 {
-    static int first;
+    static int first;   // bez tej zmiennej gdyby wąż wjeżdżał w ścianę, nie wyjeżdżałby z drugiej strony
 
     if (direction == "DOWN")
         this->setY(this->y()+40);
@@ -59,7 +59,7 @@ void Snake::move()
     else if(direction == "RIGHT")
         this->setX(this->x()+40);
 
-    if(this->getForward()!= NULL)
+    if(this->getForward()!= NULL)   //jeśli przed obecnym kawałkiem jest inny, kierunek obecnego jest taki jak kawałka przed nim
         direction = this->getForward()->direction;
 
     if(first)

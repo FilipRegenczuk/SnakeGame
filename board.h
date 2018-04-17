@@ -18,12 +18,12 @@ public:
     Board(QGraphicsItem *parent = 0);
 
     void keyPressEvent(QKeyEvent *event);
-    void addPart();
+    void addPart();     // funkcja dodająca każdy kolejny kawałek węża
     void moveSnake();
 
 public slots:
 
-    void move();
+    void move();    // funkcja poruszająca każym kawałkiem węża przy pomocy moveSnake
     void makeApple();
     void makePineapple();
 
