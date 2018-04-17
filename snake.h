@@ -1,5 +1,5 @@
-#ifndef SNAKEPART_H
-#define SNAKEPART_H
+#ifndef SNAKE_H
+#define SNAKE_H
 
 #include <QGraphicsRectItem>
 
@@ -34,4 +34,4 @@ private:
 
 };
 
-#endif // SNAKEPART_H
+#endif // SNAKE_H

@@ -1,4 +1,3 @@
-//<<<<<<< HEAD:snakepart.cpp
 #include "board.h"
 #include "game.h"
 #include "food.h"
