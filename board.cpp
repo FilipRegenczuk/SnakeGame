@@ -9,7 +9,7 @@
 Board::Board(QGraphicsItem *parent):QGraphicsRectItem(parent)
 {
     snakeHead = new Snake(this);
-    snakeHead->setForward(NULL);
+    snakeHead->setForward(NULL);    // ustawienie głowy jako pierwszego kawałka
     snakeHead->setBackward(NULL);
     snakeHead->setPos(200,200);
     snakeHead->setDirection("RIGHT");
@@ -99,7 +99,7 @@ void Board::moveSnake()
 
    while(temp!=NULL)
    {
-       temp->move();
+       temp->move();    //move() z klasy Snake
        temp = temp->getForward();
    }
 }
@@ -121,19 +121,19 @@ void Board::addPart()
 {
     Snake *part = new Snake(this);
     Snake *temp = snakeHead;
-    while(temp->getBackward() != NULL)
+    while(temp->getBackward() != NULL)  //ustawienie 'tempt' jako ostatni kawałek węża
     {
         temp = temp->getBackward();
     }
-    temp->setBackward(part);
-    part->setForward(temp);
+    temp->setBackward(part);    // ustawiamy part jako część kolejną po tempt
+    part->setForward(temp);     // ustawiamy tempt jako część przed part
     part->setBackward(NULL);
     part->addBehind();
-    part->setDirection(temp->getDirection());
-    snakeTail = part;
+    part->setDirection(temp->getDirection());   // ustawiamy kierunek part taki jak ma tempt
+    snakeTail = part;   // ustawiamy part jako snakeTail
     part->part = "TAIL";
-    if(temp != snakeHead)
-    temp->part = "PART";
+    if(temp != snakeHead)   // jeśli wcześniejszy kawałek nie jest głową
+    temp->part = "PART";    // definiujemy go jako "PART"
     part->setImage();
     temp->setImage();
 }

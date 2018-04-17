@@ -14,19 +14,19 @@ public:
     Board(QGraphicsItem *parent = 0);
 
     void keyPressEvent(QKeyEvent *event);
-    void addPart();
+    void addPart();     // funkcja dodająca każdy kolejny kawałek węża
     void moveSnake();
 
 public slots:
 
-    void move();
+    void move();    // funkcja poruszająca każym kawałkiem węża przy pomocy moveSnake
     void makeApple();
     void makePineapple();
 
 private:
 
-    Snake          *snakeHead;
-    Snake          *snakeTail;
+    Snake               *snakeHead;
+    Snake               *snakeTail;
     QString              direction;
     QTimer              *snakeTimer; //szybkość, z jaką porusza się wąż
     QTimer              *appleTimer;  //czas, po którym pojawia się nowe jabłko
