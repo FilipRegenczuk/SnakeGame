@@ -17,7 +17,6 @@ Game::Game(QWidget *parent):QGraphicsView(parent)
     setScene(gameScene);    //włączanie pola gry do widoku
     score = new Score();
     gameScene->addItem(score);
-    //snake2 = NULL;
     snake = NULL;
 
 }
@@ -83,11 +82,6 @@ void Game::start()
 
     delete gameOverText;
     delete logoLabel;
-
-   // if (snake2)
-    //    snake2->deleteLater();
-
-   // snake2 = snake;
 }
 
 void Game::help()

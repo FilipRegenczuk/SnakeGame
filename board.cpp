@@ -101,16 +101,12 @@ void Board::moveSnake()
 
    while(temp!=NULL)
    {
-       temp->move();    //move() z klasy Snake
+       temp->Snake::move();
        temp = temp->getForward();
    }
 }
-<<<<<<< HEAD
-//owoce tworzą się w losowych miejscach planszy (qrand)
-=======
 
 // klasy tworzące owoce i umieszczające je w losowych miejscach na planszy
->>>>>>> 66cbc1f466c245f99e8d3e4f9e620d4a5304f9bc
 void Board::makeApple()
 {
     Food * f1 = new Food(this,"APPLE");
@@ -127,7 +123,7 @@ void Board::makePineapple()
 // klasa zajmująca się wydłużaniem węża po zjedzeniu obiektu
 void Board::addPart()
 {
-    Snake *part = new Snake(this);  //tworzenie nowej części węża
+    Snake *part = new Snake(this);      //tworzenie nowej części węża
     Snake *temp = snakeHead;
     while(temp->getBackward() != NULL)  //ustawienie 'tempt' jako ostatni kawałek węża
     {
@@ -138,7 +134,7 @@ void Board::addPart()
     part->setBackward(NULL);
     part->addBehind();
     part->setDirection(temp->getDirection());   // ustawiamy kierunek part taki jak ma tempt
-    snakeTail = part;   // ustawiamy part jako snakeTail
+    snakeTail = part;                           // ustawiamy part jako snakeTail
     part->part = "TAIL";
     if(temp != snakeHead)   // jeśli wcześniejszy kawałek nie jest głową
     temp->part = "PART";    // definiujemy go jako "PART"

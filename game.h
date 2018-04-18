@@ -26,7 +26,6 @@ public:
     Score *score;
     QGraphicsScene *gameScene ;
     Board *snake;
-    //Board *snake2;
     QLabel *logoLabel;
     QGraphicsTextItem *gameOverText;
     QLabel *helpLabel;
