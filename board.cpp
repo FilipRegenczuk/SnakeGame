@@ -103,7 +103,7 @@ void Board::moveSnake()
        temp = temp->getForward();
    }
 }
-
+//owoce tworzą się w losowych miejscach planszy (qrand)
 void Board::makeApple()
 {
     Food * f1 = new Food(this,"APPLE");
@@ -119,7 +119,7 @@ void Board::makePineapple()
 
 void Board::addPart()
 {
-    Snake *part = new Snake(this);
+    Snake *part = new Snake(this);  //tworzenie nowej części węża
     Snake *temp = snakeHead;
     while(temp->getBackward() != NULL)  //ustawienie 'tempt' jako ostatni kawałek węża
     {
