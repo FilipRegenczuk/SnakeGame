@@ -1,3 +1,8 @@
+/* Klasa zajmuje się ustawianiem pozycji węża (kierunek zwrotu elementów) na planszy.
+ * Zawarte są tu również interakcje węża i najechanego owocu (czyli wydłużenie
+ * węża, usunięcie owocu oraz zwiększenie score'a.
+ * */
+
 #ifndef SNAKE_H
 #define SNAKE_H
 

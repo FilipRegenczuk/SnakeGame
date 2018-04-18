@@ -1,3 +1,7 @@
+/* Klasa, w której znajduje się wizualizacja owoców
+ * oraz ich punktowanie.
+ * */
+
 #ifndef FOOD_H
 #define FOOD_H
 

@@ -1,3 +1,7 @@
+/* Klasa zajmująca się tworzeniem menu startu gry oraz
+ * jego obsług za pomocą myszki.
+ * */
+
 #ifndef BUTTON_H
 #define BUTTON_H
 

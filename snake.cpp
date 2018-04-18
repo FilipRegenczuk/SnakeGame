@@ -10,10 +10,10 @@ extern Game *game;
 
 Snake::Snake(QGraphicsItem *parent):QGraphicsPixmapItem(parent)
 {
-    setZValue(1);   //ZValue(1) ustawia węża graficznie nad każdym innym elem. planszy
+    setZValue(1);   // ZValue(1) ustawia węża graficznie nad każdym innym elem. planszy
 }
 
-Snake *Snake::getForward()
+Snake *Snake::getForward()  // Funkcja zwraca informację jaki jest kawałek snake'a przed nim
 {
     return forward;
 }
@@ -23,7 +23,7 @@ void Snake::setForward(Snake *value)
     forward = value;
 }
 
-Snake *Snake::getBackward()
+Snake *Snake::getBackward() // Tak samo jak wyżej, ale tym razem kawałek za
 {
     return backward;
 }
@@ -67,7 +67,7 @@ void Snake::move()
         if(this->y() >= 720)
             this->setY(0);
 
-        else if(this->y()<0)
+        else if(this->y() < 0)
             this->setY(720);
 
         else if(this->x() < 0)

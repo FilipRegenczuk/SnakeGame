@@ -1,3 +1,7 @@
+/* Klasa zajmująca się sterowaniem wężem oraz aktywowaniem i stopowaniem jego ruchu.
+ * Jest tu również generator tworzenia owoców oraz wydłużania węża po ich zjedzeniu.
+ * */
+
 #ifndef BOARD_H
 #define BOARD_H
 #include <QKeyEvent>
@@ -34,5 +38,5 @@ private:
     QGraphicsTextItem   *text;
 };
 
-#endif // MOVESNAKE_H
+#endif // BOARD_H
 

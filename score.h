@@ -1,3 +1,6 @@
+/* Klasa służąca do przedstawiania wyniku gry.
+ * */
+
 #ifndef SCORE_H
 #define SCORE_H
 
